@@ -188,3 +188,52 @@ body {
 .identity-page .col-md-6 {
     display: none;
 }
+.green .card-img {
+    background: linear-gradient(rgba(34,197,94,.55), rgba(34,197,94,.55)), url('/img/ecoretos.jpg');
+}
+
+.orange .card-img {
+    background: linear-gradient(rgba(249,115,22,.55), rgba(249,115,22,.55)), url('/img/ciudadmap.jpg');
+}
+
+.blue .card-img {
+    background: linear-gradient(rgba(59,130,246,.55), rgba(59,130,246,.55)), url('/img/rutas.jpg');
+}
+
+.purple .card-img {
+    background: linear-gradient(rgba(139,92,246,.55), rgba(139,92,246,.55)), url('/img/universidad.jpg');
+}
+
+.pink .card-img {
+    background: linear-gradient(rgba(236,72,153,.55), rgba(236,72,153,.55)), url('/img/eventos.jpg');
+}
+
+.teal .card-img {
+    background: linear-gradient(rgba(20,184,166,.55), rgba(20,184,166,.55)), url('/img/practicas.jpg');
+}
+
+.card-img {
+    height: 120px;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.module-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.module-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.module-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.card-img {
+    transition: transform 0.4s ease;
+}
+.module-card:hover h3 {
+    color: #38bdf8;
+}
