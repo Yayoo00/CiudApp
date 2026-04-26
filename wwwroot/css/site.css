@@ -168,3 +168,23 @@ body {
     border-radius: 10px;
     margin-top: 20px;
 }
+.identity-page {
+    background: linear-gradient(135deg, #0f172a, #063b35);
+    min-height: 85vh;
+    padding: 50px 20px;
+}
+
+.identity-page .row {
+    justify-content: center;
+}
+
+.identity-page .col-md-4 {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+.identity-page .col-md-6 {
+    display: none;
+}
