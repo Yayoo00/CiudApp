@@ -61,6 +61,8 @@ Data/ApplicationDbContext.cs
 Migrations/
  20260426210306_CrearIdentity.cs
  20260426210306_CrearIdentity.Designer.cs
+ 20260426234329_AddRoles.cs
+ 20260426234329_AddRoles.Designer.cs
  ApplicationDbContextModelSnapshot.cs
 Models/ErrorViewModel.cs
 obj/Debug/net8.0/
