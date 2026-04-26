@@ -1,22 +1,170 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    margin: 0;
+}
+
+/* HERO */
+.hero-ciudapp {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-ciudapp h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.hero-ciudapp h1 span {
+    color: #38bdf8;
+}
+
+.hero-ciudapp p {
+    max-width: 600px;
+    margin: 20px auto;
+    color: #cbd5f5;
+}
+
+.hero-badges span {
+    background: #1e293b;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn-main {
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    border: 1px solid #475569;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* STATS */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.hero-stats div {
+    text-align: center;
+}
+
+.hero-stats strong {
+    font-size: 20px;
+}
+
+/* TITULOS */
+.section-title {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* CARDS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+}
+
+.module-card {
+    background: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.module-card:hover {
+    transform: scale(1.03);
+}
+
+.card-img {
+    height: 120px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h3 {
+    margin: 0;
+}
+
+/* COLORES */
+.green .card-img { background: #22c55e; }
+.orange .card-img { background: #f97316; }
+.blue .card-img { background: #3b82f6; }
+.purple .card-img { background: #8b5cf6; }
+.pink .card-img { background: #ec4899; }
+.teal .card-img { background: #14b8a6; }
+
+/* RANKING */
+.ranking-box {
+    padding: 40px;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.bar {
+    flex: 1;
+    background: #1e293b;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar div {
+    height: 100%;
+    background: #22c55e;
+}
+
+/* ACCESO RAPIDO */
+.quick-box {
+    padding: 40px;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quick-grid div {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.alert-box {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
