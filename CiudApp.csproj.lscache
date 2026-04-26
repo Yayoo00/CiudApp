@@ -55,6 +55,7 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 [sourceFiles]
 Controllers/
  CatalogoController.cs
+ Controllers/ContactoController.cs
  HomeController.cs
 Data/ApplicationDbContext.cs
 Migrations/
@@ -424,6 +425,7 @@ obj/Debug/net8.0/CiudApp.GeneratedMSBuildEditorConfig.editorconfig
 [additionalFiles]
 Views/
  Catalogo/Index.cshtml
+ Contacto/Index.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
@@ -438,6 +440,7 @@ Views/
 [dynamicFiles]
 Views/
  Catalogo/Index.cshtml
+ Contacto/Index.cshtml
  Home/
   Index.cshtml
   Privacy.cshtml
