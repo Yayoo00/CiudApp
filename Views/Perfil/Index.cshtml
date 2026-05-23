@@ -1,0 +1,32 @@
+@model CiudApp.Models.PerfilUsuario
+
+@{
+    ViewData["Title"] = "Mi Perfil";
+}
+
+<section class="section-title">
+    <h2>👤 Mi Perfil</h2>
+    <p>Personaliza tus datos de estudiante en CiudApp</p>
+</section>
+
+<section class="quick-box">
+    <form asp-action="Index" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="Nivel" />
+        <input type="hidden" asp-for="Puntos" />
+        <input type="hidden" asp-for="RutasCompletadas" />
+        <input type="hidden" asp-for="RetosCompletados" />
+
+        <label>Nombre visible</label>
+        <input class="form-control mb-3" asp-for="Nombre" />
+
+        <label>Universidad</label>
+        <input class="form-control mb-3" asp-for="Universidad" />
+
+        <label>Distrito favorito</label>
+        <input class="form-control mb-3" asp-for="Distrito" />
+
+        <button class="btn-main border-0" type="submit">Guardar perfil</button>
+    </form>
+</section>

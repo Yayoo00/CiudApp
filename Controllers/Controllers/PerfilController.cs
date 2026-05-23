@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 namespace CiudApp.Controllers
 {
     [Authorize]
-    public class DashboardController : Controller
+    public class PerfilController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public DashboardController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public PerfilController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -35,28 +35,41 @@ namespace CiudApp.Controllers
                     Universidad = "USMP",
                     Distrito = "Lima",
                     Nivel = "Inicial",
-                    Puntos = 0,
-                    RutasCompletadas = 0,
-                    RetosCompletados = 0
+                    Puntos = 0
                 };
 
                 _context.PerfilesUsuario.Add(perfil);
                 await _context.SaveChangesAsync();
             }
 
-            ViewBag.Puntos = perfil.Puntos;
-            ViewBag.Rutas = perfil.RutasCompletadas;
-            ViewBag.Retos = perfil.RetosCompletados;
-            ViewBag.Nivel = perfil.Nivel;
+            return View(perfil);
+        }
 
-            ViewBag.Ranking = new[]
+        [HttpPost]
+        public async Task<IActionResult> Index(PerfilUsuario perfil)
+        {
+            if (!ModelState.IsValid)
             {
-                new { Nombre = "Sofía R.", Puntos = 4820 },
-                new { Nombre = "Carlos M.", Puntos = 4310 },
-                new { Nombre = perfil.Nombre, Puntos = perfil.Puntos }
-            };
+                return View(perfil);
+            }
 
-            return View();
+            var userId = _userManager.GetUserId(User);
+
+            var perfilDb = await _context.PerfilesUsuario
+                .FirstOrDefaultAsync(p => p.UserId == userId);
+
+            if (perfilDb == null)
+            {
+                return NotFound();
+            }
+
+            perfilDb.Nombre = perfil.Nombre;
+            perfilDb.Universidad = perfil.Universidad;
+            perfilDb.Distrito = perfil.Distrito;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
     }
 }
