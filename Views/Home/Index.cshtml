@@ -14,13 +14,29 @@
     <h1>Tu ciudad,<br><span>tu voz</span>, tu impacto.</h1>
     <p>CiudApp conecta a jóvenes con su entorno: retos ecológicos, rutas seguras, vida universitaria y más.</p>
 
-<div class="hero-buttons">
-    <a class="btn-main" asp-area="Identity" asp-page="/Account/Login">
-        Comenzar ahora
-    </a>
+div class="hero-buttons">
+
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <a class="btn-main"
+           asp-controller="Dashboard"
+           asp-action="Index">
+            Ir a mi Dashboard
+        </a>
+    }
+    else
+    {
+        <a class="btn-main"
+           asp-area="Identity"
+           asp-page="/Account/Login">
+            Comenzar ahora
+        </a>
+    }
+
     <a class="btn-secondary">
         Ver el mapa
     </a>
+
 </div>
 
     <div class="hero-stats">
