@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="section-title">
+    <h2>📊 Mi Dashboard</h2>
+    <p>Resumen de tu progreso en CiudApp</p>
+</section>
+
+<section class="dashboard-grid">
+    <div class="dash-card">
+        <h3>🏆 Puntos</h3>
+        <strong>@ViewBag.Puntos</strong>
+        <p>Puntos acumulados</p>
+    </div>
+
+    <div class="dash-card">
+        <h3>🚴 Rutas</h3>
+        <strong>@ViewBag.Rutas</strong>
+        <p>Rutas completadas</p>
+    </div>
+
+    <div class="dash-card">
+        <h3>🌱 Retos</h3>
+        <strong>@ViewBag.Retos</strong>
+        <p>Retos completados</p>
+    </div>
+
+    <div class="dash-card">
+        <h3>📈 Nivel</h3>
+        <strong>@ViewBag.Nivel</strong>
+        <p>Estado actual</p>
+    </div>
+</section>
+
+<section class="ranking-box">
+    <h2>🥇 Ranking General</h2>
+
+    @foreach (var item in ViewBag.Ranking)
+    {
+        <div class="rank-item">
+            <span>@item.Nombre</span>
+            <div class="bar">
+                <div style="width:@(item.Puntos / 50)%"></div>
+            </div>
+            <strong>@item.Puntos</strong>
+        </div>
+    }
+</section>
