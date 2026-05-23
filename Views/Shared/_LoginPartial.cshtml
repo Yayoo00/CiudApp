@@ -6,10 +6,8 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a class="nav-link text-success fw-bold"
-        asp-area="Identity"
-        asp-page="/Account/Manage/Index">
-            👤 Mi Perfil
+        <a class="nav-link text-success fw-bold" asp-controller="Perfil" asp-action="Index">
+        👤 Mi Perfil
         </a>
     </li>
     <li class="nav-item">
