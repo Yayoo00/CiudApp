@@ -17,7 +17,10 @@
             <p>📏 Distancia: @ruta.Distancia km</p>
             <p>🤖 Nivel ML.NET: <strong>@ruta.Nivel</strong></p>
             <p>⭐ Recompensa: @ruta.Puntos puntos</p>
-            <a class="btn-main" href="#">Iniciar ruta</a>
+            <form asp-controller="Rutas" asp-action="Completar" method="post">
+            <input type="hidden" name="id" value="@ruta.Id" />
+            <button class="btn-main border-0" type="submit">Completar ruta</button>
+            </form>
         </div>
     </div>
 }
