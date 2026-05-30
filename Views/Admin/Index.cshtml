@@ -1,0 +1,68 @@
+@model List<CiudApp.Models.Recompensa>
+
+@{
+    ViewData["Title"] = "Panel Admin";
+}
+
+<h1>🔒 Panel Administrador</h1>
+
+<div class="card p-3 mb-4">
+    <h4>➕ Nueva recompensa</h4>
+
+    <form asp-action="Crear" method="post">
+
+        <div class="mb-2">
+            <input class="form-control"
+                   name="nombre"
+                   placeholder="Nombre" />
+        </div>
+
+        <div class="mb-2">
+            <input class="form-control"
+                   name="descripcion"
+                   placeholder="Descripción" />
+        </div>
+
+        <div class="mb-2">
+            <input class="form-control"
+                   name="costoPuntos"
+                   type="number"
+                   placeholder="Costo en puntos" />
+        </div>
+
+        <button class="btn btn-success">
+            Agregar recompensa
+        </button>
+
+    </form>
+</div>
+
+<table class="table table-bordered bg-white">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Puntos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Descripcion</td>
+            <td>@item.CostoPuntos</td>
+            <td>
+                <form asp-action="Eliminar" method="post">
+                <input type="hidden" name="id" value="@item.Id" />
+                    <button class="btn btn-danger btn-sm">
+                        Eliminar
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
