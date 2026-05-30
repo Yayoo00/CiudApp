@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Rutas Seguras";
+}
+
+<section class="section-title">
+    <h2>🚴 Rutas Seguras</h2>
+    <p>Elige una ruta saludable por Lima, gana puntos y mejora tu ranking.</p>
+</section>
+
+<section class="cards-grid">
+@foreach (var ruta in ViewBag.Rutas)
+{
+    <div class="module-card blue">
+        <div class="card-body">
+            <h3>@ruta.Nombre</h3>
+            <p>📍 Distrito: @ruta.Distrito</p>
+            <p>📏 Distancia: @ruta.Distancia km</p>
+            <p>🤖 Nivel ML.NET: <strong>@ruta.Nivel</strong></p>
+            <p>⭐ Recompensa: @ruta.Puntos puntos</p>
+            <form asp-controller="Rutas" asp-action="Completar" method="post">
+            <input type="hidden" name="id" value="@ruta.Id" />
+            <button class="btn-main border-0" type="submit">Completar ruta</button>
+            </form>
+        </div>
+    </div>
+}
+</section>

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using CiudApp.Models;
 
 namespace CiudApp.Data
 {
@@ -9,5 +10,11 @@ namespace CiudApp.Data
             : base(options)
         {
         }
+
+        public DbSet<PerfilUsuario> PerfilesUsuario { get; set; }
+        
+        public DbSet<Recompensa> Recompensas { get; set; }
+
+        public DbSet<Canje> Canjes { get; set; }
     }
 }
