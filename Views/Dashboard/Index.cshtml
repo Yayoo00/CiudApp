@@ -2,6 +2,13 @@
     ViewData["Title"] = "Dashboard";
 }
 
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert-box">
+        ⭐ @TempData["Mensaje"]
+    </div>
+}
+
 <section class="section-title">
     <h2>📊 Mi Dashboard</h2>
     <p>Resumen de tu progreso en CiudApp</p>
