@@ -49,12 +49,23 @@ namespace CiudApp.Controllers
             ViewBag.Retos = perfil.RetosCompletados;
             ViewBag.Nivel = perfil.Nivel;
 
-            ViewBag.Ranking = new[]
-            {
-                new { Nombre = "Sofía R.", Puntos = 4820 },
-                new { Nombre = "Carlos M.", Puntos = 4310 },
-                new { Nombre = perfil.Nombre, Puntos = perfil.Puntos }
-            };
+            if (perfil.Nombre != "Admin")
+{
+    ViewBag.Ranking = new[]
+    {
+        new { Nombre = "Sofía R.", Puntos = 4820 },
+        new { Nombre = "Carlos M.", Puntos = 4310 },
+        new { Nombre = perfil.Nombre, Puntos = perfil.Puntos }
+    };
+}
+else
+{
+    ViewBag.Ranking = new[]
+    {
+        new { Nombre = "Sofía R.", Puntos = 4820 },
+        new { Nombre = "Carlos M.", Puntos = 4310 }
+    };
+}
 
             return View();
         }
