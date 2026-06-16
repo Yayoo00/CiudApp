@@ -262,3 +262,64 @@ body {
 .dash-card p {
     color: #cbd5e1;
 }
+.reward-card{
+    background: linear-gradient(145deg,#18243d,#22314f);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    color:white;
+    height:100%;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.reward-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.reward-icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.reward-card h3{
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.reward-description{
+    color:#cbd5e1;
+    min-height:50px;
+}
+
+.reward-points{
+    color:#ffd700;
+    font-size:1.2rem;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.btn-canjear{
+    background:linear-gradient(90deg,#3b82f6,#06b6d4);
+    border:none;
+    color:white;
+    padding:10px 20px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-canjear:hover{
+    transform:scale(1.05);
+}
+.user-points{
+    display:inline-block;
+    background:linear-gradient(90deg,#fbbf24,#f59e0b);
+    color:#111827;
+    padding:12px 24px;
+    border-radius:15px;
+    font-size:1.1rem;
+    font-weight:700;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
