@@ -1,5 +1,6 @@
 using CiudApp.ML;
 using Microsoft.AspNetCore.Mvc;
+using CiudApp.Data;
 
 namespace CiudApp.Controllers
 {
@@ -34,11 +35,38 @@ namespace CiudApp.Controllers
                     distrito = "Jesús María",
                     dificultad = "Fácil",
                     puntos = 80
+                },
+                new
+                {
+                    id = 3,
+                    nombre = "Ruta Parque Kennedy",
+                    distrito = "Miraflores",
+                    dificultad = "Dificil",
+                    puntos = 200
                 }
             };
 
             return Ok(rutas);
         }
+        [HttpGet("recompensas")]
+public IActionResult ObtenerRecompensas()
+{
+    var recompensas = new[]
+    {
+        new
+        {
+            nombre = "🌱 Insignia Eco",
+            puntos = 100
+        },
+        new
+        {
+            nombre = "☕ Cupón Cafetería",
+            puntos = 250
+        }
+    };
+
+    return Ok(recompensas);
+}
 
         [HttpGet("clasificar")]
         public IActionResult ClasificarRuta(float distancia)

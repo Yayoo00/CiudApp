@@ -21,11 +21,11 @@ public class CatalogoController : Controller
         _userManager = userManager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        if (!_context.Recompensas.Any())
+    if (!_context.Recompensas.Any())
         {
-            _context.Recompensas.AddRange(
+        _context.Recompensas.AddRange(
                 new Recompensa
                 {
                     Nombre = "🌱 Insignia Eco",
@@ -49,10 +49,49 @@ public class CatalogoController : Controller
                     Nombre = "👕 Polo CiudApp",
                     Descripcion = "Merchandising oficial",
                     CostoPuntos = 1000
+                },
+                new Recompensa
+                {
+                Nombre = "🎬 Entrada Cine",
+                Descripcion = "Entrada 2x1",
+                CostoPuntos = 300
+                },
+                new Recompensa
+                {
+                    Nombre = "🍔 Combo Universitario",
+                    Descripcion = "Descuento en restaurante",
+                    CostoPuntos = 400
+                },
+                new Recompensa
+                {
+                    Nombre = "🎟 Evento Universitario",
+                    Descripcion = "Acceso a evento especial",
+                    CostoPuntos = 600
+                },
+                new Recompensa
+                {
+                    Nombre = "🚲 Kit Ciclista",
+                    Descripcion = "Accesorios de seguridad",
+                    CostoPuntos = 800
+                },
+                new Recompensa
+                {
+                    Nombre = "🎧 Audífonos Bluetooth",
+                    Descripcion = "Premio tecnológico",
+                    CostoPuntos = 1500
                 }
             );
 
             _context.SaveChanges();
+        }
+         var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var perfil = _context.PerfilesUsuario
+                .FirstOrDefault(p => p.UserId == user.Id);
+
+            ViewBag.Puntos = perfil?.Puntos ?? 0;
         }
 
         return View(_context.Recompensas.ToList());

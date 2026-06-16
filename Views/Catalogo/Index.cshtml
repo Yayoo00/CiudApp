@@ -17,6 +17,12 @@
     </div>
 }
 
+<div class="text-center mb-4">
+    <div class="user-points">
+        ⭐ Tus puntos: @ViewBag.Puntos
+    </div>
+</div>
+
 <div class="container mt-5">
 
     <h1 class="text-center text-white mb-4">
@@ -26,40 +32,39 @@
     <div class="row">
 
         @foreach (var recompensa in Model)
-        {
-            <div class="col-md-4 mb-4">
+{
+    <div class="col-lg-4 col-md-6 mb-4">
 
-                <div class="card shadow h-100">
+        <div class="reward-card">
 
-                    <div class="card-body text-dark">
-
-                        <h4 class="text-dark">@recompensa.Nombre</h4>
-
-                        <p class="text-dark">@recompensa.Descripcion</p>
-
-                        <h5 class="text-dark">
-                            ⭐ @recompensa.CostoPuntos puntos
-                        </h5>
-
-                        <form asp-action="Canjear" method="post">
-
-                        <input type="hidden"
-                            name="id"
-                            value="@recompensa.Id" />
-
-                        <button type="submit"
-                            class="btn btn-primary">
-                        Canjear
-                        </button>
-
-                        </form>
-
-                    </div>
-
-                </div>
-
+            <div class="reward-icon">
+                @recompensa.Nombre.Split(' ')[0]
             </div>
-        }
+
+            <h3>@recompensa.Nombre</h3>
+
+            <p class="reward-description">
+                @recompensa.Descripcion
+            </p>
+
+            <div class="reward-points">
+                ⭐ @recompensa.CostoPuntos puntos
+            </div>
+
+            <form asp-action="Canjear" method="post">
+                <input type="hidden"
+                       name="id"
+                       value="@recompensa.Id" />
+
+                <button type="submit" class="btn-canjear">
+                    🎁 Canjear
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+}
 
     </div>
 
