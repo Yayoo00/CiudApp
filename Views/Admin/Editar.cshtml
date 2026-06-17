@@ -1,0 +1,36 @@
+@model CiudApp.Models.Recompensa
+
+<h2>✏️ Editar recompensa</h2>
+
+<form asp-action="Editar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input asp-for="Nombre"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        <input asp-for="Descripcion"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Costo en puntos</label>
+        <input asp-for="CostoPuntos"
+               class="form-control" />
+    </div>
+
+    <button class="btn btn-success">
+        Guardar cambios
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>

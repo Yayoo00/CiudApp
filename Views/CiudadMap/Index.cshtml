@@ -1,0 +1,86 @@
+@model List<CiudApp.Models.ReporteCiudad>
+@{
+    ViewData["Title"] = "CiudadMap";
+}
+
+
+<section class="section-title">
+    <h2>🗺️ CiudadMap</h2>
+    <p>Reporta problemas y mejora tu ciudad.</p>
+</section>
+
+<div class="row">
+
+@foreach(var reporte in Model)
+{
+    var usuario = ViewBag.Usuarios[reporte.UserId];
+
+    <div class="col-md-4 mb-4">
+
+        <div class="reward-card">
+
+            <h3>
+            @if(reporte.Tipo == "Bache")
+            {
+                <span>🕳️</span>
+            }
+            @if(reporte.Tipo == "Alumbrado público")
+            {
+                <span>💡</span>
+            }
+            @if(reporte.Tipo == "Semáforo dañado")
+            {
+                <span>🚦</span>
+            }
+
+            @reporte.Tipo
+            </h3>
+
+            <p>@reporte.Ubicacion</p>
+
+            <small>@reporte.Descripcion</small>
+
+            <hr />
+
+            <small>
+                👤 Reportado por: <strong>@usuario</strong>
+            </small>
+
+            <small>
+                📅 @reporte.Fecha.ToString("dd/MM/yyyy")
+            </small>
+
+        </div>
+
+    </div>
+}
+
+</div>
+
+<div class="text-center mb-4">
+<a asp-controller="CiudadMap"
+   asp-action="Reportar"
+   class="btn-main">
+    ➕ Reportar incidencia
+</a>
+</div>
+
+<section class="mt-5">
+
+    <h3 class="text-center text-white mb-4">
+        📍 Mapa de Reportes
+    </h3>
+
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3901.410145553876!2d-77.05251835064466!3d-12.084049654462461!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8e3646ab8d7%3A0x848660d2fc40ce50!2zSmVzw7pzIE1hcsOtYQ!5e0!3m2!1ses!2spe!4v1781675250812!5m2!1ses!2spe" width="100%"
+    height="500"
+    style="border:0;border-radius:20px;"
+    allowfullscreen=""
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+    </div>
+
+</section>

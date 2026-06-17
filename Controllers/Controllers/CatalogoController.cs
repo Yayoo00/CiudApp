@@ -28,55 +28,55 @@ public class CatalogoController : Controller
         _context.Recompensas.AddRange(
                 new Recompensa
                 {
-                    Nombre = "🌱 Insignia Eco",
+                    Nombre = " Insignia Eco",
                     Descripcion = "Reconocimiento ecológico",
                     CostoPuntos = 100
                 },
                 new Recompensa
                 {
-                    Nombre = "☕ Cupón Cafetería",
+                    Nombre = " Cupón Cafetería",
                     Descripcion = "Descuento en cafetería",
                     CostoPuntos = 250
                 },
                 new Recompensa
                 {
-                    Nombre = "📚 Kit de Estudio",
+                    Nombre = " Kit de Estudio",
                     Descripcion = "Material académico",
                     CostoPuntos = 500
                 },
                 new Recompensa
                 {
-                    Nombre = "👕 Polo CiudApp",
+                    Nombre = " Polo CiudApp",
                     Descripcion = "Merchandising oficial",
                     CostoPuntos = 1000
                 },
                 new Recompensa
                 {
-                Nombre = "🎬 Entrada Cine",
+                Nombre = " Entrada Cine",
                 Descripcion = "Entrada 2x1",
                 CostoPuntos = 300
                 },
                 new Recompensa
                 {
-                    Nombre = "🍔 Combo Universitario",
+                    Nombre = " Combo Universitario",
                     Descripcion = "Descuento en restaurante",
                     CostoPuntos = 400
                 },
                 new Recompensa
                 {
-                    Nombre = "🎟 Evento Universitario",
+                    Nombre = " Evento Universitario",
                     Descripcion = "Acceso a evento especial",
                     CostoPuntos = 600
                 },
                 new Recompensa
                 {
-                    Nombre = "🚲 Kit Ciclista",
+                    Nombre = " Kit Ciclista",
                     Descripcion = "Accesorios de seguridad",
                     CostoPuntos = 800
                 },
                 new Recompensa
                 {
-                    Nombre = "🎧 Audífonos Bluetooth",
+                    Nombre = " Audífonos Bluetooth",
                     Descripcion = "Premio tecnológico",
                     CostoPuntos = 1500
                 }

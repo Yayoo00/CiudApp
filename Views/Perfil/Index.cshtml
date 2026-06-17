@@ -5,9 +5,51 @@
 }
 
 <section class="section-title">
-    <h2>👤 Mi Perfil</h2>
+    <h2> Mi Perfil</h2>
     <p>Personaliza tus datos de estudiante en CiudApp</p>
 </section>
+
+<div class="perfil-header">
+
+    <div class="perfil-avatar">
+        👤
+    </div>
+
+    <h3>@Model.Nombre</h3>
+
+    <p>
+        @Model.Universidad • @Model.Distrito
+    </p>
+
+</div>
+
+<div class="perfil-stats">
+
+    <div class="perfil-stat">
+        <h3>⭐</h3>
+        <strong>@Model.Puntos</strong>
+        <span>Puntos</span>
+    </div>
+
+    <div class="perfil-stat">
+        <h3>🌱</h3>
+        <strong>@Model.RetosCompletados</strong>
+        <span>Retos</span>
+    </div>
+
+    <div class="perfil-stat">
+        <h3>🚴</h3>
+        <strong>@Model.RutasCompletadas</strong>
+        <span>Rutas</span>
+    </div>
+
+    <div class="perfil-stat">
+        <h3>📈</h3>
+        <strong>@Model.Nivel</strong>
+        <span>Nivel</span>
+    </div>
+
+</div>
 
 <section class="quick-box">
     <form asp-action="Index" method="post">
@@ -27,6 +69,8 @@
         <label>Distrito favorito</label>
         <input class="form-control mb-3" asp-for="Distrito" />
 
-        <button class="btn-main border-0" type="submit">Guardar perfil</button>
+        <button class="btn-main border-0" type="submit">
+            💾 Guardar perfil
+        </button>
     </form>
 </section>
