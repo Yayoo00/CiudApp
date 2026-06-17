@@ -556,3 +556,7 @@ body {
 
     min-height:180px;
 }
+.sugerencia-card{
+    padding:20px;
+    text-align:left;
+}

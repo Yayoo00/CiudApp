@@ -110,3 +110,33 @@
 }
 
 </div>
+
+<hr class="my-5" />
+
+<h2>📨 Sugerencias Recibidas</h2>
+
+@if (ViewBag.Sugerencias != null)
+{
+    @foreach (var sugerencia in ViewBag.Sugerencias)
+    {
+        <div class="admin-card mb-3">
+
+            <h5>👤 @sugerencia.Nombre</h5>
+
+            <p><strong>📧 Correo:</strong> @sugerencia.Correo</p>
+
+            <p><strong>📌 Asunto:</strong> @sugerencia.Asunto</p>
+
+            <p><strong>💬 Comentario:</strong></p>
+
+            <div class="comentario-box">
+                @sugerencia.Comentario
+            </div>
+
+            <small class="text-muted">
+                @sugerencia.Fecha.ToString("dd/MM/yyyy HH:mm")
+            </small>
+
+        </div>
+    }
+}

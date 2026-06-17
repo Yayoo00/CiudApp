@@ -20,5 +20,6 @@ namespace CiudApp.Data
         public DbSet<EcoRetoCompletado> EcoRetosCompletados { get; set; }
 
         public DbSet<ReporteCiudad> ReportesCiudad { get; set; }
+        public DbSet<Sugerencia> Sugerencias { get; set; }
     }
 }

@@ -1,17 +1,85 @@
 @{
-    ViewData["Title"] = "Contacto";
+    ViewData["Title"] = "Centro de Sugerencias";
 }
 
 <section class="section-title">
-    <h2>Contáctanos</h2>
-    <p>Comunícate con el equipo de CiudApp</p>
+    <h2>💡 Centro de Sugerencias</h2>
+    <p>Ayúdanos a mejorar CiudApp compartiendo tus ideas.</p>
 </section>
 
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="reward-card text-center">
+            <h3>⭐</h3>
+            <h5>EcoRetos</h5>
+            <p>Propón nuevos desafíos ecológicos.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="reward-card text-center">
+            <h3>🚲</h3>
+            <h5>Rutas</h5>
+            <p>Recomienda rutas seguras.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="reward-card text-center">
+            <h3>🎓</h3>
+            <h5>Universidad</h5>
+            <p>Comparte actividades estudiantiles.</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="reward-card text-center">
+            <h3>📢</h3>
+            <h5>Mejoras</h5>
+            <p>Sugiere nuevas funciones para CiudApp.</p>
+        </div>
+    </div>
+
+</div>
+
 <section class="quick-box">
-    <form>
-        <input class="form-control mb-3" placeholder="Nombre completo" />
-        <input class="form-control mb-3" placeholder="Correo electrónico" />
-        <textarea class="form-control mb-3" rows="5" placeholder="Escribe tu mensaje"></textarea>
-        <button class="btn-main border-0">Enviar mensaje</button>
+
+    <form method="post">
+
+        <input
+            name="nombre"
+            class="form-control mb-3"
+            placeholder="Nombre completo" />
+
+        <input
+            name="correo"
+            class="form-control mb-3"
+            placeholder="Correo electrónico" />
+
+        <input
+            name="asunto"
+            class="form-control mb-3"
+            placeholder="Asunto" />
+
+        <textarea
+            name="comentario"
+            class="form-control mb-3"
+            rows="5"
+            placeholder="Describe tu sugerencia">
+        </textarea>
+
+        <button class="btn-main border-0">
+            📩 Enviar sugerencia
+        </button>
+
     </form>
+
 </section>
