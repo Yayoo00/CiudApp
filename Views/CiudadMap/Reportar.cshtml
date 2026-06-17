@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Reportar Incidencia";
+}
+
+<section class="section-title">
+    <h2>📍 Reportar incidencia</h2>
+</section>
+
+<div class="quick-box">
+
+    <form asp-action="Reportar" method="post">
+
+        <div class="mb-3">
+            <label>Tipo</label>
+            <select class="form-control" name="tipo">
+                <option>Semáforo dañado</option>
+                <option>Bache</option>
+                <option>Alumbrado público</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Ubicación</label>
+            <input class="form-control"
+                   name="ubicacion" />
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea class="form-control"
+                      name="descripcion"></textarea>
+        </div>
+
+        <button class="btn-main border-0">
+            Enviar reporte
+        </button>
+
+    </form>
+
+</div>

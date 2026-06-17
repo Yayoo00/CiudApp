@@ -1,0 +1,162 @@
+@{
+    ViewData["Title"] = "EcoRetos";
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<section class="section-title">
+    <h2>🌱 EcoRetos</h2>
+    <p>Completa desafíos ecológicos y gana puntos.</p>
+</section>
+
+<div class="row">
+
+    <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>♻️ Reciclar plástico</h3>
+            <p>Ayuda al medio ambiente.</p>
+            <h4>+50 puntos</h4>
+
+    <form asp-action="CompletarReto" method="post">
+
+    <input type="hidden"
+           name="nombreReto"
+           value="Reciclar plástico" />
+
+    <input type="hidden"
+           name="puntos"
+           value="50" />
+
+    <button class="btn btn-success">
+        Completar reto
+    </button>
+
+    </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>🚲 Usar bicicleta</h3>
+            <p>Reduce emisiones.</p>
+            <h4>+80 puntos</h4>
+
+    <form asp-action="CompletarReto" method="post">
+
+    <input type="hidden"
+           name="nombreReto"
+           value="Usar bicicleta" />
+
+    <input type="hidden"
+           name="puntos"
+           value="80" />
+
+    <button class="btn btn-success">
+        Completar reto
+    </button>
+
+</form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>🌳 Plantar un árbol</h3>
+            <p>Contribuye al planeta.</p>
+            <h4>+100 puntos</h4>
+
+<form asp-action="CompletarReto" method="post">
+
+    <input type="hidden"
+           name="nombreReto"
+           value="Plantar un árbol" />
+
+    <input type="hidden"
+           name="puntos"
+           value="100" />
+
+    <button class="btn btn-success">
+        Completar reto
+    </button>
+
+</form>
+        </div>
+    </div>
+        <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>💡 Ahorrar energía</h3>
+            <p>Apaga luces y equipos que no uses.</p>
+            <h4>+60 puntos</h4>
+
+            <form asp-action="CompletarReto" method="post">
+                <input type="hidden"
+                       name="nombreReto"
+                       value="Ahorrar energía" />
+
+                <input type="hidden"
+                       name="puntos"
+                       value="60" />
+
+                <button class="btn btn-success">
+                    Completar reto
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>🚰 Ahorrar agua</h3>
+            <p>Reduce el consumo diario de agua.</p>
+            <h4>+70 puntos</h4>
+
+            <form asp-action="CompletarReto" method="post">
+                <input type="hidden"
+                       name="nombreReto"
+                       value="Ahorrar agua" />
+
+                <input type="hidden"
+                       name="puntos"
+                       value="70" />
+
+                <button class="btn btn-success">
+                    Completar reto
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="reward-card">
+            <h3>🚌 Usar transporte público</h3>
+            <p>Disminuye la contaminación urbana.</p>
+            <h4>+90 puntos</h4>
+
+            <form asp-action="CompletarReto" method="post">
+                <input type="hidden"
+                       name="nombreReto"
+                       value="Usar transporte público" />
+
+                <input type="hidden"
+                       name="puntos"
+                       value="90" />
+
+                <button class="btn btn-success">
+                    Completar reto
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>

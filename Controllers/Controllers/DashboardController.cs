@@ -20,43 +20,49 @@ namespace CiudApp.Controllers
         }
 
         public async Task<IActionResult> Index()
+{
+    var userId = _userManager.GetUserId(User);
+
+    var perfil = await _context.PerfilesUsuario
+        .FirstOrDefaultAsync(p => p.UserId == userId);
+
+    if (perfil == null)
+    {
+        perfil = new PerfilUsuario
         {
-            var userId = _userManager.GetUserId(User);
+            UserId = userId!,
+            Nombre = "Estudiante",
+            Universidad = "USMP",
+            Distrito = "Lima",
+            Nivel = "Inicial",
+            Puntos = 0,
+            RutasCompletadas = 0,
+            RetosCompletados = 0
+        };
 
-            var perfil = await _context.PerfilesUsuario
-                .FirstOrDefaultAsync(p => p.UserId == userId);
+        _context.PerfilesUsuario.Add(perfil);
+        await _context.SaveChangesAsync();
+    }
 
-            if (perfil == null)
-            {
-                perfil = new PerfilUsuario
-                {
-                    UserId = userId!,
-                    Nombre = "Estudiante",
-                    Universidad = "USMP",
-                    Distrito = "Lima",
-                    Nivel = "Inicial",
-                    Puntos = 0,
-                    RutasCompletadas = 0,
-                    RetosCompletados = 0
-                };
+    ViewBag.Puntos = perfil.Puntos;
+    ViewBag.Rutas = perfil.RutasCompletadas;
+    ViewBag.Retos = perfil.RetosCompletados;
+    ViewBag.Nivel = perfil.Nivel;
 
-                _context.PerfilesUsuario.Add(perfil);
-                await _context.SaveChangesAsync();
-            }
+    var ranking = _context.PerfilesUsuario
+        .Where(p => p.Nombre != "Admin")
+        .OrderByDescending(p => p.Puntos)
+        .Take(10)
+        .Select(p => new
+        {
+            Nombre = p.Nombre,
+            Puntos = p.Puntos
+        })
+        .ToList();
 
-            ViewBag.Puntos = perfil.Puntos;
-            ViewBag.Rutas = perfil.RutasCompletadas;
-            ViewBag.Retos = perfil.RetosCompletados;
-            ViewBag.Nivel = perfil.Nivel;
+    ViewBag.Ranking = ranking;
 
-            ViewBag.Ranking = new[]
-            {
-                new { Nombre = "Sofía R.", Puntos = 4820 },
-                new { Nombre = "Carlos M.", Puntos = 4310 },
-                new { Nombre = perfil.Nombre, Puntos = perfil.Puntos }
-            };
-
-            return View();
-        }
+    return View();
+}
     }
 }

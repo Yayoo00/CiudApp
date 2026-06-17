@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Asistente IA";
+}
+
+<section class="section-title">
+    <h2>🤖 Asistente IA</h2>
+    <p>Consulta información sobre CiudApp.</p>
+</section>
+
+<div class="quick-box">
+
+    <form method="post">
+
+        <textarea
+            name="pregunta"
+            class="form-control mb-3"
+            rows="5"
+            placeholder="Escribe tu pregunta..."></textarea>
+
+        <button
+            type="submit"
+            class="btn-main border-0">
+            Consultar
+        </button>
+
+    </form>
+
+    @if(ViewBag.Respuesta != null)
+    {
+        <div class="alert alert-info mt-3">
+            <strong>ciudaBot:</strong>
+            <br />
+            @ViewBag.Respuesta
+        </div>
+    }
+
+</div>

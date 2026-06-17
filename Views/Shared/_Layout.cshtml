@@ -38,6 +38,7 @@
         <a class="nav-link text-dark" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
     </li>
 
+
     @if (User.IsInRole("Admin"))
     {
         <li class="nav-item">
@@ -65,5 +66,119 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+<button id="chatButton" class="chat-float">
+    🤖
+</button>
+
+<div id="chatBox">
+
+    <div class="chat-header">
+        🤖 Asistente IA
+    </div>
+
+<div class="chat-body">
+
+    <div id="respuesta"></div>
+
+    <textarea id="pregunta"
+              rows="3"
+              placeholder="Pregunta algo sobre CiudApp...">
+    </textarea>
+
+    <button id="btnPreguntar">
+        Consultar
+    </button>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("chatButton")
+.addEventListener("click", function () {
+
+    const box = document.getElementById("chatBox");
+
+    if (box.style.display === "block")
+        box.style.display = "none";
+    else
+        box.style.display = "block";
+});
+
+document.getElementById("btnPreguntar")
+.addEventListener("click", async function () {
+
+    const pregunta = document.getElementById("pregunta").value;
+
+    if (!pregunta.trim())
+        return;
+
+    document.getElementById("pregunta").value = "";
+
+    const chat = document.getElementById("respuesta");
+
+    chat.innerHTML += `
+    <div style="margin-bottom:10px;">
+        <strong>🧑 Tú:</strong><br>
+        ${pregunta}
+    </div>
+    `;
+
+    chat.innerHTML += `
+    <div id="loading" style="
+        background:#334155;
+        padding:10px;
+        border-radius:10px;
+        margin-bottom:15px;">
+        ⏳ Consultando IA...
+    </div>
+    `;
+
+    chat.scrollTop = chat.scrollHeight;
+
+    const response = await fetch(
+        "/api/asistente/preguntar",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                pregunta: pregunta
+            })
+        });
+
+    const data = await response.json();
+
+    document.getElementById("loading").remove();
+
+    chat.innerHTML += `
+    <div style="
+        background:#334155;
+        padding:10px;
+        border-radius:10px;
+        margin-bottom:15px;">
+        <strong>🤖 IA:</strong><br>
+        ${data.respuesta}
+    </div>
+    `;
+
+    chat.scrollTop = chat.scrollHeight;
+});
+
+document.getElementById("pregunta")
+.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter" && !e.shiftKey)
+    {
+        e.preventDefault();
+        document.getElementById("btnPreguntar").click();
+    }
+
+});
+</script>
+
+
 </body>
 </html>

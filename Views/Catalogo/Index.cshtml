@@ -51,15 +51,27 @@
                 ⭐ @recompensa.CostoPuntos puntos
             </div>
 
-            <form asp-action="Canjear" method="post">
-                <input type="hidden"
-                       name="id"
-                       value="@recompensa.Id" />
+            @if (ViewBag.Puntos >= recompensa.CostoPuntos)
+{
+    <form asp-action="Canjear" method="post">
 
-                <button type="submit" class="btn-canjear">
-                    🎁 Canjear
-                </button>
-            </form>
+        <input type="hidden"
+            name="id"
+            value="@recompensa.Id" />
+
+        <button type="submit"
+            class="btn-canjear">
+            🎁 Canjear
+        </button>
+
+    </form>
+}
+else
+{
+    <button class="btn-no-disponible" disabled>
+        🔒 No disponible
+    </button>
+}
 
         </div>
 

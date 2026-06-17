@@ -1,14 +1,18 @@
 using CiudApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using CiudApp.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
+var apiKey = builder.Configuration["OpenRouter:ApiKey"];
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<CiudApp.ML.RutaMLService>();
+
+
+builder.Services.AddScoped<IAService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));

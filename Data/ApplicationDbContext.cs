@@ -16,5 +16,9 @@ namespace CiudApp.Data
         public DbSet<Recompensa> Recompensas { get; set; }
 
         public DbSet<Canje> Canjes { get; set; }
+
+        public DbSet<EcoRetoCompletado> EcoRetosCompletados { get; set; }
+
+        public DbSet<ReporteCiudad> ReportesCiudad { get; set; }
     }
 }
