@@ -472,3 +472,87 @@ body {
     width:100%;
     display:block;
 }
+/* CHATBOT */
+#chatButton{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+    transition:.3s;
+}
+
+#chatButton:hover{
+    transform:scale(1.1);
+}
+
+#chatBox{
+    display:none;
+    position:fixed;
+    bottom:110px;
+    right:25px;
+    width:380px;
+    height:500px;
+    background:#0f172a;
+    border-radius:20px;
+    overflow:hidden;
+    z-index:9999;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.chat-header{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    padding:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.chat-body{
+    display:flex;
+    flex-direction:column;
+    height:430px;
+    padding:15px;
+}
+
+.chat-body textarea{
+    width:100%;
+    height:70px;
+    border:none;
+    border-radius:12px;
+    padding:10px;
+    resize:none;
+    margin-bottom:10px;
+}
+
+#btnPreguntar{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:10px;
+    background:#06b6d4;
+    color:white;
+    font-weight:bold;
+}
+
+#respuesta{
+    flex:1;
+    overflow-y:auto;
+
+    background:#1e293b;
+    color:white;
+
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:10px;
+
+    min-height:180px;
+}
