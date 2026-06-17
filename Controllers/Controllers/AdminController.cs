@@ -16,7 +16,12 @@ namespace CiudApp.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Sugerencias = _context.Sugerencias
+                .OrderByDescending(s => s.Fecha)
+                .ToList();
+
             var recompensas = _context.Recompensas.ToList();
+
             return View(recompensas);
         }
         public IActionResult Editar(int id)
